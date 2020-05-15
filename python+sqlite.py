@@ -18,6 +18,7 @@ conn = sqlite3.connect('drill_step_104.db')
 
 for f in fileList:
     if f.endswith('.txt'):
+        print('{} was added to the database.\n'.format(f))
         with conn:
             cur = conn.cursor()
             cur.execute("INSERT INTO tbl_docs(col_docName) VALUES ('" + f + "')" \
@@ -34,13 +35,13 @@ conn = sqlite3.connect('drill_step_104.db')
 
 
 with conn:
-    print("The following '.txt' documents were added to the database: \n")
+    print("Here are all the .txt documents in the database: \n")
     counter = 0
     cur = conn.cursor()
     cur.execute("SELECT col_docName FROM tbl_docs WHERE LOWER(SUBSTR(col_docName,LENGTH(col_docName) - 3, 4)) = '.txt'")
     varDocs = cur.fetchall()
     for item in varDocs:
-        print("Document Name: {}\n".format(item[0]))
+        print("{}\n".format(item[0]))
         counter += 1
     print('Total: {}'.format(counter))
      
