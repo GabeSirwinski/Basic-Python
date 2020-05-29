@@ -7,6 +7,6 @@ from . import views
 urlpatterns = [
     path('', views.homepage, name="homepage"),
     path('AddTransaction', views.addTransaction, name="addtransaction"),
-    path('BalanceSheet', views.balanceSheet, name="balancesheet"),
+    path('<int:pk>/BalanceSheet/', views.balanceSheet, name="balancesheet"),
     path('CreateNewAccount', views.createNewAccount, name="createnewaccount"),
 ]

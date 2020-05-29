@@ -38,6 +38,7 @@ input, select{
 }
 
 /* General Table Styling */
+
 th{
 	border: 3px solid black;
 }
@@ -47,7 +48,6 @@ tr td{
 	border: 2px solid black;
 	word-wrap: normal;
 	vertical-align: top;
-	width: auto;
 }
 
 #headerRow {

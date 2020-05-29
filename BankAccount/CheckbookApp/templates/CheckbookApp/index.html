@@ -7,9 +7,13 @@
     <div class="text-center">
         <h5>Manage your existing account!</h5>
         <!-- Need to replace the <input> with a Django generated DropDown form -->
-        <label>Choose Account:</label><input type="text" name="Account"><br>
-        <!-- Need to add a method to the onclick so the button works-->
-        <button type="button" onclick="">Go to Account</button>
+        <label>Choose Account:</label>
+        <select name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+            <option value="">Account Name / Number</option>
+            {% for account in accounts %}
+                <option value="{{ account.id }}/BalanceSheet/">{{ account }}</option>
+            {% endfor %}
+            </select>
     </div>
     <hr>
     <div class="text-center">
